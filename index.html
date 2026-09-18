@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giovanni Frazier | Personal Portfolio</title>
+    <title>Giovanni Frazier | Supply Chain Systems & Analytics</title>
     <style>
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --border-color: #30363d;
-            --text-main: #c9d1d9;
-            --text-muted: #8b949e;
-            --accent-color: #58a6ff;
+            --bg-color: #030712;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --border-color: #1f2937;
+            --border-glow: #06b6d4;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent-cyan: #06b6d4;
+            --accent-green: #10b981;
+            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
         }
 
         * {
@@ -21,95 +24,213 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
             padding: 2rem 1rem;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.15), transparent 40%),
+                linear-gradient(to right, rgba(31, 41, 55, 0.2) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(31, 41, 55, 0.2) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         header {
-            text-align: center;
-            padding-bottom: 2rem;
+            padding: 3rem 0 2rem;
             border-bottom: 1px solid var(--border-color);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-green);
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            margin-bottom: 1rem;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-green);
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
+            font-weight: 800;
             color: #ffffff;
+            letter-spacing: -0.025em;
             margin-bottom: 0.5rem;
         }
 
-        p.subtitle {
-            color: var(--text-muted);
-            font-size: 1.2rem;
+        .subtitle {
+            color: var(--accent-cyan);
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         section {
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
         }
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
+            font-family: var(--font-mono);
             color: #ffffff;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid var(--accent-color);
-            display: inline-block;
-            padding-bottom: 0.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
+        h2::before {
+            content: "//";
+            color: var(--accent-cyan);
+        }
+
+        /* Metrics Dashboard Section */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            backdrop-filter: blur(12px);
+        }
+
+        .metric-value {
+            font-family: var(--font-mono);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Grid & Cards */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
         }
 
         .card {
-            background-color: var(--card-bg);
+            background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 1.25rem;
-            transition: transform 0.2s, border-color 0.2s;
+            border-radius: 8px;
+            padding: 1.5rem;
+            backdrop-filter: blur(12px);
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
             transform: translateY(-2px);
-            border-color: var(--accent-color);
         }
 
         .card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
             color: #ffffff;
+            margin-bottom: 0.5rem;
         }
 
         .card p {
             color: var(--text-muted);
             font-size: 0.95rem;
+            margin-bottom: 1rem;
         }
 
-        .links a {
-            color: var(--accent-color);
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-cyan);
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        /* Terminals / Bio */
+        .terminal-box {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
             text-decoration: none;
-            margin-right: 1rem;
+            transition: all 0.2s ease;
         }
 
-        .links a:hover {
-            text-decoration: underline;
+        .btn:hover {
+            background: var(--accent-cyan);
+            color: #000000;
+            border-color: var(--accent-cyan);
+            font-weight: 600;
         }
 
         footer {
             text-align: center;
+            font-family: var(--font-mono);
             color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-top: 3rem;
-            padding-top: 1rem;
+            font-size: 0.8rem;
+            margin-top: 4rem;
+            padding-top: 1.5rem;
             border-top: 1px solid var(--border-color);
         }
     </style>
@@ -118,40 +239,101 @@
 
     <div class="container">
         <header>
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                SYSTEM OPERATIONAL // OPEN TO OPPORTUNITIES
+            </div>
             <h1>Giovanni Frazier</h1>
-            <p class="subtitle">Welcome to my personal site</p>
+            <p class="subtitle">Supply Chain Management & Logistics Analytics</p>
         </header>
 
+        <!-- Dynamic Metrics Banner -->
+        <section id="metrics">
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">99.4%</div>
+                    <div class="metric-label">Target OTIF Rate</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">SQL / R / PY</div>
+                    <div class="metric-label">Core Tech Stack</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">EOQ & MRP</div>
+                    <div class="metric-label">Optimization Models</div>
+                </div>
+            </div>
+        </section>
+
         <section id="about">
-            <h2>About Me</h2>
-            <p>Hello! I'm Giovanni. Welcome to my GitHub Pages landing page. Edit this section to introduce yourself, your skills, and what you're currently working on.</p>
+            <h2>System_Overview</h2>
+            <div class="terminal-box">
+                <p><span style="color: var(--accent-cyan);">$ user.getBio()</span></p>
+                <p style="margin-top: 0.5rem; color: var(--text-muted);">
+                    Supply Chain Major leveraging data analytics, predictive modeling, and systems architecture to eliminate operational bottlenecks, optimize inventory turn rates, and engineer resilient global logistics networks.
+                </p>
+            </div>
         </section>
 
         <section id="projects">
-            <h2>Projects</h2>
+            <h2>Deployed_Projects</h2>
             <div class="project-grid">
                 <div class="card">
-                    <h3>Project One</h3>
-                    <p>A short description of your first project, technology used, and key features.</p>
+                    <h3>Global Route Optimization</h3>
+                    <p>Built a network flow model calculating least-cost routing paths while adjusting for transit lead-time variability and port congestion data.</p>
+                    <div class="tag-container">
+                        <span class="tag">Python</span>
+                        <span class="tag">Linear Programming</span>
+                        <span class="tag">Logistics</span>
+                    </div>
                 </div>
                 <div class="card">
-                    <h3>Project Two</h3>
-                    <p>A short description of your second project, technology used, and key features.</p>
+                    <h3>Demand Forecasting Dashboard</h3>
+                    <p>Designed a predictive inventory model using ARIMA time-series analysis to optimize safety stock thresholds and minimize stockouts.</p>
+                    <div class="tag-container">
+                        <span class="tag">R</span>
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Inventory Control</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Warehouse Management Audit</h3>
+                    <p>Simulated warehouse picking flows using Lean 5S and ABC inventory classification to reduce lead times by targeted margins.</p>
+                    <div class="tag-container">
+                        <span class="tag">Process Mapping</span>
+                        <span class="tag">SAP S/4HANA</span>
+                        <span class="tag">ERP</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical_Capabilities</h2>
+            <div class="card">
+                <div class="tag-container" style="gap: 0.75rem;">
+                    <span class="tag">SAP S/4HANA</span>
+                    <span class="tag">SQL Data Extraction</span>
+                    <span class="tag">Tableau / Power BI</span>
+                    <span class="tag">Python (Pandas, PuLP)</span>
+                    <span class="tag">Network Flow Optimization</span>
+                    <span class="tag">Six Sigma Principles</span>
+                    <span class="tag">Procurement Analytics</span>
                 </div>
             </div>
         </section>
 
         <section id="contact">
-            <h2>Connect</h2>
+            <h2>Initialize_Contact</h2>
             <div class="links">
-                <a href="https://github.com/giovannifrazier" target="_blank" rel="noopener">GitHub</a>
-                <a href="#">LinkedIn</a>
-                <a href="mailto:your.email@example.com">Email</a>
+                <a href="https://github.com/giovannifrazier" target="_blank" rel="noopener" class="btn">GitHub</a>
+                <a href="#" class="btn">LinkedIn</a>
+                <a href="mailto:your.email@example.com" class="btn">Transmit Email</a>
             </div>
         </section>
 
         <footer>
-            <p>&copy; 2026 Giovanni Frazier. Hosted on GitHub Pages.</p>
+            <p>LATENCY: 12ms // &copy; 2026 GIOVANNI FRAZIER // HOSTED ON GITHUB PAGES</p>
         </footer>
     </div>
 
