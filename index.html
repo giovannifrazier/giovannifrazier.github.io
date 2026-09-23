@@ -212,6 +212,60 @@
             margin-bottom: 0.4rem;
         }
 
+        .edu-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .edu-school {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .edu-degree {
+            color: var(--accent);
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+
+        .edu-meta {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.25rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .activity-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+        }
+
+        .activity-name {
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .activity-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
         footer {
             text-align: center;
             font-size: 0.85rem;
@@ -237,9 +291,21 @@
         </header>
 
         <section id="about">
-            <h2>Overview</h2>
+            <h2>Professional Summary</h2>
             <div class="summary-card">
                 <p>Supply Chain Management student at Rutgers Business School with hands-on experience in e-commerce order fulfillment, inventory management, and retail logistics operations. Demonstrated ability to maintain high order accuracy and operational efficiency in fast-paced, high-volume environments, with experience tracking data, supporting team training, and coordinating across functions.</p>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="edu-card">
+                <div class="edu-school">Rutgers Business School, Rutgers, The State University of New Jersey</div>
+                <div class="edu-degree">Bachelor of Science, Supply Chain Management; Minor: HR Analytics</div>
+                <div class="edu-meta">
+                    <span>New Brunswick, NJ</span>
+                    <span>Expected May 2028</span>
+                </div>
             </div>
         </section>
 
@@ -279,20 +345,6 @@
         <section id="experience">
             <h2>Experience</h2>
             <div class="experience-list">
-                
-                <div class="exp-card">
-                    <div class="exp-header">
-                        <div>
-                            <div class="exp-role">Cashier &amp; Inventory Restocker</div>
-                            <div class="exp-company">George Street Co-op &bull; New Brunswick, NJ</div>
-                        </div>
-                        <div class="exp-date">Aug 2026 &ndash; Present</div>
-                    </div>
-                    <ul class="exp-bullets">
-                        <li>Stock and replenish inventory of healthy and organic groceries for a community-focused co-op serving the New Brunswick area.</li>
-                        <li>Process point-of-sale transactions accurately, handling payment and register operations during store hours.</li>
-                    </ul>
-                </div>
 
                 <div class="exp-card">
                     <div class="exp-header">
@@ -303,9 +355,10 @@
                         <div class="exp-date">Aug 2026 &ndash; Present</div>
                     </div>
                     <ul class="exp-bullets">
-                        <li>Set up and break down merchandise locations across major university sporting events.</li>
-                        <li>Restock and organize merchandise to keep the retail space fully stocked and properly priced throughout each event.</li>
-                        <li>Support training of new team members on shift functions and store operations.</li>
+                        <li>Restocked and organized merchandise to keep the retail space fully stocked and properly priced throughout each event.</li>
+                        <li>Set up and broke down merchandise locations at Rutgers sporting events spanning football, basketball, wrestling, soccer, and lacrosse.</li>
+                        <li>Assisted customers with product inquiries and operated point-of-sale registers using safe money-handling and secure transaction practices.</li>
+                        <li>Supported onboarding and training of new team members on shift functions and store operations.</li>
                     </ul>
                 </div>
 
@@ -318,9 +371,39 @@
                         <div class="exp-date">Jan 2026 &ndash; May 2026</div>
                     </div>
                     <ul class="exp-bullets">
-                        <li>Fulfilled customer grocery orders via smartphone fulfillment app, reaching over 120 units per hour with speed and accuracy.</li>
+                        <li>Fulfilled customer grocery orders via smartphone fulfillment app, picking, scanning, and packing items with speed and accuracy, reaching over 120 units per hour.</li>
+                        <li>Selected fresh produce and products in accordance with customer preferences and quality standards.</li>
                         <li>Staged completed orders in designated temperature-controlled areas, including refrigerators and freezers.</li>
-                        <li>Communicated directly with customers regarding item substitutions and order updates.</li>
+                        <li>Communicated with customers via app regarding substitutions and assisted in-store shoppers with item location.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">Customer Service Employee</div>
+                            <div class="exp-company">DaVinci&rsquo;s Brick Oven Pizza &bull; New Jersey</div>
+                        </div>
+                        <div class="exp-date">Jun 2025 &ndash; Oct 2025</div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Processed in-store and online orders during peak hours while managing the cash register and answering phone calls.</li>
+                        <li>Delivered front-line customer service in a high-volume restaurant, maintaining satisfaction across indoor and outdoor dining.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">Healthy Living Intern</div>
+                            <div class="exp-company">The YMCA of Montclair &bull; Montclair, NJ</div>
+                        </div>
+                        <div class="exp-date">May 2024 &ndash; Jun 2024</div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Recorded and tracked results for over 600 athletes competing in the annual Montclair Run fundraising event.</li>
+                        <li>Conducted fitness class audits to evaluate member experience and deliver structured instructor feedback.</li>
+                        <li>Organized HR records, sorting W2 files for YMCA staff to support office administration.</li>
                     </ul>
                 </div>
 
@@ -334,10 +417,55 @@
                     </div>
                     <ul class="exp-bullets">
                         <li>Trained new employees on shift functions and partnered with management on onboarding and skills development.</li>
-                        <li>Executed inventory management and restocked critical operational supplies.</li>
+                        <li>Executed inventory management and restocked supplies including syrups, cups, lids, juices, and coffee beans.</li>
                     </ul>
                 </div>
 
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">Front/Back of House Team Member</div>
+                            <div class="exp-company">Mochinut &bull; New Jersey</div>
+                        </div>
+                        <div class="exp-date">Aug 2022 &ndash; Dec 2022</div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Resolved unfulfilled online order complaints by comparing orders against delivered products, identifying discrepancies, and coordinating corrective fulfillment with customers and drivers.</li>
+                        <li>Facilitated communication and translation among non-English-speaking staff to maintain efficient teamwork.</li>
+                        <li>Rotated between cash register operations and production, maintaining pace during high-volume periods.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="volunteer">
+            <h2>Volunteer Experience</h2>
+            <div class="exp-card">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-role">Volunteer Cashier / Stocker</div>
+                        <div class="exp-company">George Street Co-op &bull; New Brunswick, NJ</div>
+                    </div>
+                </div>
+                <ul class="exp-bullets">
+                    <li>Stocked and replenished inventory of healthy and organic groceries.</li>
+                    <li>Processed point-of-sale transactions accurately during store hours, supporting a community-focused co-op in the New Brunswick area.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="activities">
+            <h2>Activities &amp; Leadership</h2>
+            <div class="activity-list">
+                <div class="activity-card">
+                    <div class="activity-name">Rutgers Business Association of Supply Chain Expertise (BASE)</div>
+                    <div class="activity-desc">Selected as a mentee in a group mentorship program to build core analytical, technical, and professional skills in supply chain management.</div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-name">Rutgers Supply Chain Association (RUSCA)</div>
+                    <div class="activity-desc">Member of an undergraduate organization dedicated to engaging students in supply chain management through immersive learning and industry engagement.</div>
+                </div>
             </div>
         </section>
 
